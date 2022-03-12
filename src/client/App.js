@@ -7,10 +7,13 @@ const App = () => {
     const [tasks, setTasks] = useState([])
     const [task, setTask] = useState(nullTask)
 
+    const cancelEdition = () => {
+        setTask(nullTask)
+    }
     const saveTask = (e) => {
         e.preventDefault()
-        fetch('/api/tasks', {
-            method: task._id ? 'UPDATE' : 'POST',
+        fetch('/api/tasks' + (task._id ? '/'+task._id : ''), {
+            method: task._id ? 'PUT' : 'POST',
             body: JSON.stringify(task),
             headers: {
                 'Accept': 'application/json',
@@ -73,7 +76,7 @@ const App = () => {
             <div className="container">
                 <div className='row'>
                     <div className='col s5'>
-                        <TaskForm />
+                        <TaskForm task={task} setTask={setTask} saveTask={saveTask} cancelEdition={cancelEdition} />
                     </div>
                     <div className='col s7'>
                         <table>

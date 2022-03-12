@@ -1,8 +1,7 @@
+import React from 'react'
 
-export default TaskForm = ({task, setTask}) => {
-    const cancelEdition = () => {
-        setTask(nullTask)
-    }
+const TaskForm = ({task, setTask, saveTask, cancelEdition}) => {
+
     return (
         <div className='card'>
             <div className='card-content'>
@@ -35,3 +34,5 @@ export default TaskForm = ({task, setTask}) => {
         </div>
     )
 }
+
+export default TaskForm
