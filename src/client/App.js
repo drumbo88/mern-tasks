@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TaskForm from './TaskForm'
+import TaskList from './TaskList'
 
 const App = () => {
 
@@ -79,29 +80,7 @@ const App = () => {
                         <TaskForm task={task} setTask={setTask} saveTask={saveTask} cancelEdition={cancelEdition} />
                     </div>
                     <div className='col s7'>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Title</th><th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>{
-                                tasks.map(task=>(
-                                    <tr key={task._id}>
-                                        <td>{task.title}</td>
-                                        <td>{task.description}</td>
-                                        <td>
-                                            <button onClick={() => editTask(task._id)} className='btn light-blue darken-4'>
-                                                <i className='material-icons'>Edit</i>
-                                            </button>
-                                            <button onClick={() => deleteTask(task._id)} className='btn red darken-4'>
-                                                <i className='material-icons'>Delete</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))
-                            }</tbody>
-                        </table>
+                        <TaskList tasks={tasks} editTask={editTask} deleteTask={deleteTask} />
                     </div>
                 </div>
             </div>
