@@ -5,7 +5,8 @@ const TaskList = ({editTask, deleteTask}) => {
         <table>
             <thead>
                 <tr>
-                    <th>Title</th><th>Description</th>
+                    <th>Title</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>{
