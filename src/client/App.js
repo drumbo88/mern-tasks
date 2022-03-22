@@ -4,6 +4,10 @@ import TaskList from './TaskList'
 
 const App = () => {
 
+    const jsonHeaders = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    }
     const nullTask = { _id: '', title: '', description: '' }
     const [tasks, setTasks] = useState([])
     const [task, setTask] = useState(nullTask)
@@ -16,10 +20,7 @@ const App = () => {
         fetch('/api/tasks' + (task._id ? '/'+task._id : ''), {
             method: task._id ? 'PUT' : 'POST',
             body: JSON.stringify(task),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
+            headers: jsonHeaders
         })
         .then(res => res.json())
         .then(data => {
@@ -39,10 +40,7 @@ const App = () => {
             return false
         fetch('/api/tasks/'+id, {
             method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
+            headers: jsonHeaders
         })
         .then(res => res.json())
         .then(data => {
