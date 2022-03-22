@@ -25,7 +25,8 @@ const TaskForm = ({task, setTask, saveTask, cancelEdition}) => {
                         Send
                     </button>
                     { task._id && 
-                        <button onClick={(e) => { e.preventDefault(); cancelEdition() }} className='btn light-gray darken-4'>
+                        <button onClick={(e) => { e.preventDefault(); cancelEdition() }} 
+                            className='btn light-gray darken-4'>
                             Cancel
                         </button>
                     }  
